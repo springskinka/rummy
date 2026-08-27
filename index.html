@@ -1,0 +1,215 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <title>15-Round Game</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+  <header class="app-header">
+
+    <h1 id="appTitle">🎲 15-Round Game</h1>
+
+    <nav class="nav">
+
+      <label class="muted" for="languageSelect" id="langLabel">Language</label>
+
+      <select id="languageSelect" class="btn">
+
+        <option value="en">English</option>
+
+        <option value="sv">Svenska</option>
+
+      </select>
+
+ 
+
+      <button id="rulesBtn" class="btn">Rules</button>
+
+      <button id="gotoStartBtn" class="btn">Start Page</button>
+
+      <button id="gotoBoardBtn" class="btn primary">Scoreboard</button>
+
+      <button id="newGameBtn" class="btn danger">New Game</button>
+
+    </nav>
+
+  </header>
+
+ 
+
+  <main class="layout-single">
+
+ 
+
+    <!-- START PAGE VIEW -->
+
+    <section id="startView" class="card">
+
+      <h2 id="setupPlayersTitle">Setup Players</h2>
+
+      <p class="muted" id="setupPlayersHelp">Add up to 4 players. You can rename them anytime.</p>
+
+ 
+
+      <div id="playersList" class="players-list"></div>
+
+      <div class="add-player">
+
+        <input id="newPlayerName" type="text" maxlength="20" placeholder="Add player name..." />
+
+        <button id="addPlayerBtn" class="btn">Add Player</button>
+
+      </div>
+
+ 
+
+      <hr class="divider" />
+
+ 
+
+      <div class="start-actions">
+
+        <div class="start-buttons">
+
+          <button id="startGameBtn" class="btn primary">Start Game ▶</button>
+
+        </div>
+
+ 
+
+        <small class="muted" id="startTip">
+
+          Tip: “Start Game” takes you to the scoreboard.
+
+        </small>
+
+      </div>
+
+    </section>
+
+ 
+
+    <!-- SCOREBOARD VIEW -->
+
+    <section id="boardView" class="card hidden">
+
+      <div class="board-topbar">
+
+        <h2 id="scoreboardTitle">Scoreboard</h2>
+
+        <div class="right-actions">
+
+          <!-- intentionally empty -->
+
+        </div>
+
+      </div>
+
+ 
+
+      <!-- Round Description Panel -->
+
+      <section class="round-desc-panel">
+
+        <div class="round-desc-header">
+
+          <strong id="roundTitle">Round 1</strong>
+
+          <span id="roundPosInfo" class="muted" style="margin-left: .5rem;">Round 1 / 15</span>
+
+        </div>
+
+        <div id="roundDescription" class="richtext" aria-live="polite"></div>
+
+        <div class="round-desc-actions">
+
+          <button id="prevRoundBtn" class="btn">◀ Previous</button>
+
+          <button id="nextRoundBtn" class="btn">Next ▶</button>
+
+        </div>
+
+      </section>
+
+ 
+
+      <div class="board-container">
+
+        <table id="scoreTable" class="score-table"></table>
+
+      </div>
+
+ 
+
+      <div class="winner-bar">
+
+        <button id="finalizeBtn" class="btn">Finalize Game</button>
+
+        <span id="winnerInfo" class="winner-info"></span>
+
+      </div>
+
+    </section>
+
+ 
+
+  </main>
+
+ 
+
+  <footer class="app-footer">
+
+    <small id="footerNote">Auto-saves locally.</small>
+
+  </footer>
+
+ 
+
+  <!-- ===== Rules Modal ===== -->
+
+  <div id="rulesModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" aria-hidden="true">
+
+    <div class="modal-backdrop" data-close="1"></div>
+
+    <div class="modal-content" role="document">
+
+      <div class="modal-header">
+
+        <h3 id="rulesTitle">Rules</h3>
+
+        <button id="rulesCloseBtn" class="btn modal-close" aria-label="Close">✖</button>
+
+      </div>
+
+      <div id="rulesBody" class="modal-body richtext">
+
+        <!-- filled by JS from i18n.rules.content -->
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button id="rulesOkBtn" class="btn primary">OK</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
